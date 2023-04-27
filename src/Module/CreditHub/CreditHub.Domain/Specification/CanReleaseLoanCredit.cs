@@ -27,7 +27,7 @@ namespace Project.Module.CreditHub.Domain.Specification
             if(!(Value <= 1000000.00))
                 return false;
 
-            if(!(NumberOfInstallments >= 5) || !(NumberOfInstallments <= 75))
+            if(!(NumberOfInstallments >= 5) || !(NumberOfInstallments <= 72))
                 return false;
 
             if(!(FirstDueDate >= DateOnly.FromDateTime(DateTime.UtcNow.AddDays(15))) || !(FirstDueDate <= DateOnly.FromDateTime(DateTime.UtcNow.AddDays(40))))
