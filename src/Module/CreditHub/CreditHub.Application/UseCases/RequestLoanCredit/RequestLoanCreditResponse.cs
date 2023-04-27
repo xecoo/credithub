@@ -1,13 +1,13 @@
-namespace Project.Module.CreditHub.Application.UseCases.GetNewSomething
+namespace Project.Module.CreditHub.Application.UseCases.RequestLoanCredit
 {
-    public class GetNewSomethingResponse 
+    public class RequestLoanCreditResponse 
     {
         public int Status { get; private set; }
         public string StatusAsString { get; private set; }
         public double DebitoTotal { get; private set; }
         public double ValorDoJuros { get; private set; }
 
-        public GetNewSomethingResponse(
+        public RequestLoanCreditResponse(
             int status,
             string statusAsString,
             double debitoTotal,

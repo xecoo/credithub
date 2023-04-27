@@ -1,7 +1,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Project.Ap.Controllers.Resources;
-using Project.Module.CreditHub.Application.UseCases.GetNewSomething;
+using Project.Module.CreditHub.Application.UseCases.RequestLoanCredit;
 
 namespace Api.Controllers
 {
@@ -15,7 +15,7 @@ namespace Api.Controllers
             [FromBody] RequestLoanCreditDto requestLoanCreditDto,
             [FromServices] IMediator mediator)
         {
-            var request = new GetNewSomethingRequest(
+            var request = new RequestLoanCreditRequest(
                 requestLoanCreditDto.Valor,
                 requestLoanCreditDto.TipoDeCredito,
                 requestLoanCreditDto.QuantidadeDeParcelas,
