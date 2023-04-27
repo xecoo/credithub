@@ -1,4 +1,6 @@
 using MediatR;
+using Project.Module.CreditHub.Domain.Helpers.Loans;
+using Project.Module.CreditHub.Domain.Loans;
 using Project.Module.CreditHub.Domain.Specification;
 
 namespace Project.Module.CreditHub.Application.UseCases.RequestLoanCredit
@@ -15,11 +17,26 @@ namespace Project.Module.CreditHub.Application.UseCases.RequestLoanCredit
                 request.QuantidadeDeParcelas,
                 request.DataDoPrimeiroVencimento);
 
-            if(!loanCredit.IsSatisfied())
-                return new RequestLoanCreditResponse(1, "Reprovado");
+            var loan = new LoanFactory().CreateLoanBasedOnLoanCreditType(request.TipoDeCredito);
 
-            // return new RequestLoanCreditResponse(loanCredit);
-            throw new NotImplementedException();
+            if(!loanCredit.IsSatisfied(loan.GetName()))
+                return new RequestLoanCreditResponse("Reprovado");
+
+            return CreateResponseBasedOnResult(loan, loanCredit.Value, "Aprovado");
         }
+
+    private RequestLoanCreditResponse CreateResponseBasedOnResult(
+        Loan loan,
+        double loanCreditValue, 
+        string result)
+    {
+        if(result == "Aprovado")
+            return new RequestLoanCreditResponse(
+                "Aprovado",
+                loan.CreateValueToBePaid(loanCreditValue),
+                loan.GetTaxRate()); 
+
+        return new RequestLoanCreditResponse("Reprovado");
+    }
     }
 }
