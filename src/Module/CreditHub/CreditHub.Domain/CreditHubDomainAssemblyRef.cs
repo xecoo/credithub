@@ -1,4 +1,4 @@
-﻿namespace Project.Modules.CreditHub.Domain
+﻿namespace Project.Module.CreditHub.Domain
 {
     public class CreditHubDomainAssemblyRef
     {
