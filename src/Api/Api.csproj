@@ -8,8 +8,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3"/>
     <PackageReference Include="MediatR" Version="12.0.1"/>
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0"/>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.16"/>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Modules\CreditHub\CreditHub.Application\CreditHub.Application.csproj" />
+    <ProjectReference Include="..\Module\CreditHub\CreditHub.Application\CreditHub.Application.csproj"/>
   </ItemGroup>
 </Project>
