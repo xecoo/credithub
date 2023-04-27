@@ -7,6 +7,15 @@ namespace Project.Module.CreditHub.Application.UseCases.RequestLoanCredit
         public double DebitoTotal { get; private set; }
         public double ValorDoJuros { get; private set; }
 
+
+        public RequestLoanCreditResponse(
+            int status,
+            string statusAsString)
+        {
+            Status = status;
+            StatusAsString = statusAsString;
+        }
+
         public RequestLoanCreditResponse(
             int status,
             string statusAsString,
