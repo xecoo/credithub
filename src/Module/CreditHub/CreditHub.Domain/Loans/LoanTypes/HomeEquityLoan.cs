@@ -5,7 +5,7 @@ namespace Project.Module.CreditHub.Domain.Loans.LoanTypes
         public HomeEquityLoan()
         {
             Name = "HomeEquityLoan";
-            TaxRate = 0.03;
+            TaxRate = 0.09;
         }
     }
 }
