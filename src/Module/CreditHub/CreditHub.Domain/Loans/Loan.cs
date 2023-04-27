@@ -15,5 +15,6 @@ namespace Project.Module.CreditHub.Domain.Loans
 
         public double CreateValueToBePaid(double requestValue) => requestValue * (1 + TaxRate);
         public string GetName() => Name;
+        public double GetTaxRate() => TaxRate * 100;
     }
 }
