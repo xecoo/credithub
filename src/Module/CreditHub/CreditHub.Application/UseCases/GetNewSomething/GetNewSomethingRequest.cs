@@ -4,11 +4,17 @@ namespace Project.Module.CreditHub.Application.UseCases.GetNewSomething
 {
     public class GetNewSomethingRequest : IRequest<GetNewSomethingResponse>
     {
-        public int Number { get; set; }
+        public double Valor { get; private set; }
+        public string TipoDeCredito { get; private set; }
+        public int QuantidadeDeParcelas { get; private set; }
+        public DateOnly DataDoPrimeiroVencimento { get; private set; }
 
-        public GetNewSomethingRequest(int number)
+        public GetNewSomethingRequest(double valor, string tipoDeCredito, int quantidadeDeParcelas, DateOnly dataDoPrimeiroVencimento)
         {
-            Number = number;
+            Valor = valor;
+            TipoDeCredito = tipoDeCredito;
+            QuantidadeDeParcelas = quantidadeDeParcelas;
+            DataDoPrimeiroVencimento = dataDoPrimeiroVencimento;
         }
     }
 }

@@ -8,10 +8,7 @@ namespace Project.Module.CreditHub.Application.UseCases.GetNewSomething
             GetNewSomethingRequest request, 
             CancellationToken cancellationToken)
         {
-            return new GetNewSomethingResponse
-            {
-                Number = request.Number + 1
-            };
+            return new GetNewSomethingResponse(1,"",1,1);
         }
     }
 }
