@@ -9,12 +9,16 @@ namespace Project.Module.CreditHub.Application.UseCases.RequestLoanCredit
         public int QuantidadeDeParcelas { get; private set; }
         public DateOnly DataDoPrimeiroVencimento { get; private set; }
 
-        public RequestLoanCreditRequest(double valor, string tipoDeCredito, int quantidadeDeParcelas, DateOnly dataDoPrimeiroVencimento)
+        public RequestLoanCreditRequest(
+            double valor,
+            string tipoDeCredito,
+            int quantidadeDeParcelas,
+            string dataDoPrimeiroVencimento)
         {
             Valor = valor;
             TipoDeCredito = tipoDeCredito;
             QuantidadeDeParcelas = quantidadeDeParcelas;
-            DataDoPrimeiroVencimento = dataDoPrimeiroVencimento;
+            DataDoPrimeiroVencimento = DateOnly.Parse(dataDoPrimeiroVencimento);
         }
     }
 }
