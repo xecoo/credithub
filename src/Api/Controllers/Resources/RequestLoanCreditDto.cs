@@ -5,6 +5,6 @@ namespace Project.Ap.Controllers.Resources
         public double Valor { get; set; }
         public string TipoDeCredito { get; set; }
         public int QuantidadeDeParcelas { get; set; }
-        public DateOnly DataDoPrimeiroVencimento { get; set; } 
+        public string DataDoPrimeiroVencimento { get; set; } 
     }
 }

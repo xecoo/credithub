@@ -2,7 +2,7 @@ namespace Project.Ap.Controllers.Resources
 {
     public class ResponseLoanCreditDto 
     {
-        public string StatusAsString { get; set; }
+        public string Status { get; set; }
         public double DebitoTotal { get; set; }
         public double ValorDoJuros { get; set; }
 
@@ -11,7 +11,7 @@ namespace Project.Ap.Controllers.Resources
             double debitoTotal,
             double valorDoJuros)
         {
-            StatusAsString = statusAsString;
+            Status = statusAsString;
             DebitoTotal = debitoTotal;
             ValorDoJuros = valorDoJuros;
         }
