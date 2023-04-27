@@ -21,9 +21,14 @@ namespace Api.Controllers
                 requestLoanCreditDto.QuantidadeDeParcelas,
                 requestLoanCreditDto.DataDoPrimeiroVencimento);
 
-            var responde =  await mediator.Send(request);
+            var response =  await mediator.Send(request);
 
-            return Ok(responde);
+            var responseLoanCreditDto = new ResponseLoanCreditDto(
+                response.StatusAsString,
+                response.DebitoTotal,
+                response.ValorDoJuros);
+
+            return Ok(responseLoanCreditDto);
         }
     }
 }
