@@ -8,7 +8,9 @@ namespace Project.Module.CreditHub.Application.UseCases.RequestLoanCredit
             RequestLoanCreditRequest request, 
             CancellationToken cancellationToken)
         {
-            return new RequestLoanCreditResponse(1,"",1,1);
+            var loanCredit = CanReleaseLoanCredit.IsSatisfiedBasedOn();
+
+            return new RequestLoanCreditResponse(loanCredit);
         }
     }
 }
