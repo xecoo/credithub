@@ -1,4 +1,5 @@
 using MediatR;
+using Project.Module.CreditHub.Domain.Specification;
 
 namespace Project.Module.CreditHub.Application.UseCases.RequestLoanCredit
 {
@@ -8,7 +9,14 @@ namespace Project.Module.CreditHub.Application.UseCases.RequestLoanCredit
             RequestLoanCreditRequest request, 
             CancellationToken cancellationToken)
         {
-            // var loanCredit = CanReleaseLoanCredit.IsSatisfiedBasedOn();
+            var loanCredit = new CanReleaseLoanCredit(
+                request.Valor,
+                request.TipoDeCredito,
+                request.QuantidadeDeParcelas,
+                request.DataDoPrimeiroVencimento);
+
+            if(!loanCredit.IsSatisfied())
+                return new RequestLoanCreditResponse(1, "Reprovado");
 
             // return new RequestLoanCreditResponse(loanCredit);
             throw new NotImplementedException();
