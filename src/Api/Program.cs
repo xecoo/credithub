@@ -1,3 +1,6 @@
+using System.Reflection;
+using Project.Module.CreditHub.Application;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +9,16 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddControllers().AddNewtonsoftJson();
+
+// MediatR
+var creditHubAssembly = Assembly.GetAssembly(typeof(CreditHubApplicationAssemblyRef));
+
+builder.Services.AddMediatR(
+    cfg => 
+        cfg.RegisterServicesFromAssembly(creditHubAssembly)
+    );
 
 var app = builder.Build();
 
